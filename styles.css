@@ -1,0 +1,242 @@
+/* Variables de color de la Pizzería */
+:root {
+    --brown-dark: #3E1E0F;
+    --yellow-cheese: #FFC107;
+    --yellow-hover: #FFD54F;
+    --red-tomato: #E53935;
+    --light-gray: #F5F5F5;
+    --black-comic: #111;
+}
+
+/* Estilos Globales */
+body {
+    font-family: 'Chewy', cursive;
+    background-color: var(--brown-dark);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tipografías Especiales */
+h1, h2, h3, .navbar-brand, .btn-comic, .price-title, .specialty-label {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+}
+
+/* Utilidades de Texto */
+.text-yellow { color: var(--yellow-cheese) !important; }
+.text-red { color: var(--red-tomato) !important; }
+.bg-light-gray { background-color: var(--light-gray); }
+
+/* Efecto de borde negro estilo Cómic en texto */
+.title-outline {
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 4px 4px 0px rgba(0,0,0,0.5);
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 2.5rem;
+    color: white !important;
+    text-shadow: 2px 2px 0 #000;
+}
+.nav-link {
+    color: white !important;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+.nav-link:hover {
+    color: var(--yellow-cheese) !important;
+    transform: scale(1.1) rotate(-3deg);
+}
+
+/* Hero Section (Fondo Marrón con Textura) */
+.hero-section {
+    background-color: var(--brown-dark);
+    /* Patrón de puntos estilo cómic (Halftone effect) */
+    background-image: radial-gradient(circle, rgba(0,0,0,0.1) 2px, transparent 2.5px);
+    background-size: 10px 10px;
+    padding: 100px 0;
+    min-height: 80vh;
+}
+
+/* Curvas Amarillas en el fondo */
+.yellow-curve-top {
+    position: absolute;
+    top: -50px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background-color: var(--yellow-cheese);
+    border-radius: 50%;
+    z-index: 1;
+}
+.yellow-curve-bottom {
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 300px;
+    background-color: var(--yellow-cheese);
+    border-radius: 50% 50% 0 0;
+    z-index: 1;
+    transform: rotate(15deg);
+}
+
+.text-section, .image-section {
+    z-index: 2; /* Para estar encima de las curvas */
+}
+
+/* Títulos principales */
+.hero-title {
+    color: white;
+    text-shadow: 3px 3px 0 var(--black-comic), 6px 6px 0px rgba(0,0,0,0.3);
+}
+.hero-subtitle {
+    color: var(--yellow-cheese);
+    font-size: 3rem;
+    text-shadow: 2px 2px 0 var(--black-comic);
+    transform: rotate(-2deg);
+}
+
+/* Botón Estilo Cómic */
+.btn-comic {
+    background-color: var(--yellow-cheese);
+    color: var(--black-comic);
+    border: 3px solid var(--black-comic);
+    box-shadow: 5px 5px 0px var(--black-comic);
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.btn-comic:hover {
+    background-color: var(--yellow-hover);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 10px 10px 0px var(--black-comic);
+    color: var(--black-comic);
+}
+
+/* Imagen Principal y Globo de Oferta */
+.main-pizza {
+    border-radius: 15px;
+    border: 5px solid var(--black-comic);
+    box-shadow: 10px 10px 0px var(--black-comic);
+    transition: transform 0.3s ease;
+}
+.main-pizza:hover {
+    transform: rotate(0deg) scale(1.02) !important;
+}
+
+.comic-bubble {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    background: white;
+    color: var(--red-tomato);
+    border: 3px solid var(--black-comic);
+    padding: 15px 20px;
+    border-radius: 50%;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    box-shadow: 5px 5px 0px var(--black-comic);
+    z-index: 3;
+}
+/* Pico del globo de diálogo */
+.comic-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    border-width: 15px 15px 0 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+.comic-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 17px;
+    border-width: 18px 18px 0 0;
+    border-style: solid;
+    border-color: var(--black-comic) transparent transparent transparent;
+    z-index: -1;
+}
+
+/* Tarjetas de Precios */
+.comic-card {
+    background: white;
+    border: 4px solid var(--black-comic);
+    border-radius: 15px;
+    box-shadow: 8px 8px 0px var(--black-comic);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.comic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 12px 12px 0px var(--black-comic);
+}
+.scale-up { transform: scale(1.05); } /* La tarjeta mediana un poco más grande */
+
+.price-icon {
+    width: 60px;
+    height: auto;
+    filter: drop-shadow(2px 2px 0px var(--black-comic));
+}
+.price-title { font-size: 2rem; }
+.price-amount { font-size: 1.5rem; color: #555; }
+
+/* Especialidades */
+.specialties-section {
+    background-color: var(--brown-dark);
+}
+.specialty-card {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.comic-border {
+    border: 5px solid var(--black-comic);
+    box-shadow: 8px 8px 0px var(--black-comic);
+}
+.specialty-card:hover {
+    transform: translateY(-10px) rotate(0deg);
+    box-shadow: 12px 12px 0px var(--yellow-cheese);
+}
+.specialty-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 5px solid var(--black-comic);
+}
+.specialty-label {
+    background-color: var(--yellow-cheese);
+    color: var(--black-comic);
+    font-size: 2rem;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+/* Rotaciones divertidas para simular recortes de papel */
+.rotate-right { transform: rotate(3deg); }
+.rotate-left { transform: rotate(-3deg); }
+
+/* Footer */
+.footer-comic {
+    background-color: var(--red-tomato);
+    border-top: 5px solid var(--black-comic);
+    box-shadow: inset 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+/* Animaciones Flotantes */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(5deg); }
+}
+.floating-animation {
+    animation: float 3s ease-in-out infinite;
+}
